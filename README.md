@@ -30,6 +30,7 @@
 ### **1. 配置 GPIO 引脚（LED 控制）**
 在 main.c 文件中初始化 GPIO：
 
+```c
 GPIO_InitTypeDef GPIO_InitStruct;
 
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能 GPIOA 时钟
@@ -41,6 +42,8 @@ GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 ### **2. 配置 USART1（蓝牙通信）**
 初始化串口用于蓝牙通信，波特率为 9600：
+
+```c
 USART_InitTypeDef USART_InitStructure;
 
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);
@@ -66,6 +69,8 @@ USART_Cmd(USART1, ENABLE);
 ## **代码逻辑**
 ### **1. 主程序**
 在主函数中初始化 LED 和串口，开启中断接收：
+
+```c
 int main(void) {
     HAL_Init();
     SystemClock_Config();
@@ -80,6 +85,9 @@ int main(void) {
 
 ### **2. 串口接收中断处理**
 接收蓝牙模块发送的指令，并解析执行对应操作：
+
+```c
+
 char rx_buffer[10];
 void USART1_IRQHandler(void) {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
