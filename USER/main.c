@@ -4,26 +4,23 @@
 #include "key.h"
 #include "usart.h"
 
-//ALIENTEK Mini STM32¿ª·¢°å·¶Àı´úÂë3
-//´®¿ÚÊµÑé
-//¼¼ÊõÂÛÌ³:www.openedv.com	
 
  int main(void)
  {
 	u8 t;
 	u8 len;	
 	u16 times=0;  	
- 	SystemInit();//ÏµÍ³Ê±ÖÓµÈ³õÊ¼»¯
-	delay_init(72);	     //ÑÓÊ±³õÊ¼»¯
-	NVIC_Configuration();//ÉèÖÃNVICÖĞ¶Ï·Ö×é2:2Î»ÇÀÕ¼ÓÅÏÈ¼¶£¬2Î»ÏìÓ¦ÓÅÏÈ¼¶
-	uart_init(9600);//´®¿Ú³õÊ¼»¯Îª9600
- 	LED_Init();	 //LED¶Ë¿Ú³õÊ¼»¯
-	printf("À¶ÑÀ¿ØÖÆLED\r\n"); 
+ 	SystemInit();//ç³»ç»Ÿæ—¶é’Ÿç­‰åˆå§‹åŒ–
+	delay_init(72);	     //å»¶æ—¶åˆå§‹åŒ–
+	NVIC_Configuration();//è®¾ç½®NVICä¸­æ–­åˆ†ç»„2:2ä½æŠ¢å ä¼˜å…ˆçº§ï¼Œ2ä½å“åº”ä¼˜å…ˆçº§
+	uart_init(9600);//ä¸²å£åˆå§‹åŒ–ä¸º9600
+ 	LED_Init();	 //LEDç«¯å£åˆå§‹åŒ–
+	printf("è“ç‰™æ§åˆ¶LED\r\n"); 
 	 LED0=0;
 	 LED1=0;
 	while(1)
 	{
-		//printf("À¶ÑÀ¿ØÖÆLED\r\n");
+		//printf("è“ç‰™æ§åˆ¶LED\r\n");
 	  switch(Bluetooth_data)
 		{
             case  0x01: LED0=!LED0;
@@ -42,22 +39,22 @@
 //  		
 // 		{
 
-//  				case 0x02:k=2;	break; //Ç°½ø±êÖ¾
+//  				case 0x02:k=2;	break; //å‰è¿›æ ‡å¿—
 // 				
-//  			    case 0x01: k=1; break;//ºóÍË±êÖ¾
+//  			    case 0x01: k=1; break;//åé€€æ ‡å¿—
 //  			
-//  				case 0x00: k=0;	break;//Í£Ö¹±êÖ¾
+//  				case 0x00: k=0;	break;//åœæ­¢æ ‡å¿—
 //  						
-//  				case 0x03: k=3;	break;//×ó×ª±êÖ¾
+//  				case 0x03: k=3;	break;//å·¦è½¬æ ‡å¿—
 // 				
-// 				case 0x04: k=4;	break;//ÓÒ×ª±êÖ¾
+// 				case 0x04: k=4;	break;//å³è½¬æ ‡å¿—
 //  			    
-//  				case 0x05: k=5;	break;//Ô­µØ¸ßËÙ×ó×ª±êÖ¾
+//  				case 0x05: k=5;	break;//åŸåœ°é«˜é€Ÿå·¦è½¬æ ‡å¿—
 // 				
-// 				case 0x06: k=6;	break;//Ô­µØ¸ßËÙÓÒ×ª±êÖ¾
+// 				case 0x06: k=6;	break;//åŸåœ°é«˜é€Ÿå³è½¬æ ‡å¿—
 //           
-//              	case 0x07: k=7;	break;//Ô­µØµÍËÙÓÒ×ª±êÖ¾
+//              	case 0x07: k=7;	break;//åŸåœ°ä½é€Ÿå³è½¬æ ‡å¿—
 
-// 				case 0x08: k=8;	break;//Ô­µØµÍËÙ±êÖ¾
+// 				case 0x08: k=8;	break;//åŸåœ°ä½é€Ÿæ ‡å¿—
 //  		}
 
