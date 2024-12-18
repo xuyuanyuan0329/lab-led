@@ -39,7 +39,7 @@ GPIO_InitStruct.GPIO_Pin = GPIO_Pin_5;            // 选择 PA5 引脚
 GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;     // 推挽输出模式
 GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;    // 设置输出速度
 GPIO_Init(GPIOA, &GPIO_InitStruct);
-
+```
 
 ### **2. 配置 USART1（蓝牙通信）**
 初始化串口用于蓝牙通信，波特率为 9600：
@@ -66,6 +66,7 @@ USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
 
 USART_Init(USART1, &USART_InitStructure);
 USART_Cmd(USART1, ENABLE);
+```
 
 ## **代码逻辑**
 ### **1. 主程序**
@@ -83,6 +84,7 @@ int main(void) {
         // 等待中断接收处理命令
     }
 }
+```
 
 ### **2. 串口接收中断处理**
 接收蓝牙模块发送的指令，并解析执行对应操作：
@@ -110,6 +112,7 @@ void USART1_IRQHandler(void) {
         }
     }
 }
+```
 
 ## **使用步骤**
 1. 硬件搭建：按照硬件连接方案连接蓝牙模块与 STM32。
