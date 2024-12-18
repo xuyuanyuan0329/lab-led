@@ -3,28 +3,18 @@
 #include "sys.h" 
 #include "delay.h"
 
-//////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌĞòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßĞí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//Mini STM32¿ª·¢°å
-//°´¼üÊäÈë Çı¶¯´úÂë		   
-//¼¼ÊõÂÛÌ³:www.openedv.com
-//ĞŞ¸ÄÈÕÆÚ:2011/11/28 
-//°æ±¾£ºV1.1
-//°æÈ¨ËùÓĞ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ALIENTEK  2009-2019
-//All rights reserved
-//********************************************************************************
+
  
-void KEY_Init(void) //IO³õÊ¼»¯
+void KEY_Init(void) //IOåˆå§‹åŒ–
 {
  	GPIO_InitTypeDef GPIO_InitStructure;
-	//init GPIOA.13,GPIOA.15  ÉÏÀ­ÊäÈë
+	//init GPIOA.13,GPIOA.15  ä¸Šæ‹‰è¾“å…¥
  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_13|GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
 
  	GPIO_Init(GPIOA, &GPIO_InitStructure);
-	//init GPIOA.0	  ÏÂÀ­ÊäÈë
+	//init GPIOA.0	  ä¸‹æ‹‰è¾“å…¥
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD; 
 
@@ -34,12 +24,12 @@ void KEY_Init(void) //IO³õÊ¼»¯
 }
 u8 KEY_Scan(void)
 {	 
-	static u8 key_up=1;//°´¼ü°´ËÉ¿ª±êÖ¾	
+	static u8 key_up=1;//æŒ‰é”®æŒ‰æ¾å¼€æ ‡å¿—	
  
  	GPIO_PinRemapConfig(GPIO_Remap_SWJ_Disable, ENABLE);
 	if(key_up&&(KEY0==0||KEY1==0||KEY2==1))
 	{
-		delay_ms(10);//È¥¶¶¶¯ 
+		delay_ms(10);//å»æŠ–åŠ¨ 
 		key_up=0;
 		if(KEY0==0)
 		{
@@ -62,5 +52,5 @@ u8 KEY_Scan(void)
 	}else if(KEY0==1&&KEY1==1&&KEY2==0)key_up=1; 	    
  
  	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
-	return 0;// ÎŞ°´¼ü°´ÏÂ
+	return 0;// æ— æŒ‰é”®æŒ‰ä¸‹
 }
