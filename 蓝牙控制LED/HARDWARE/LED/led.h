@@ -1,16 +1,15 @@
 #ifndef __LED_H
 #define __LED_H	 
 #include "stm32f10x.h"
-//Mini STM32¿ª·¢°å
-//LEDÇı¶¯´úÂë			 
-//ÕıµãÔ­×Ó@ALIENTEK
-//2012/2/27
+//Mini STM32å¼€å‘æ¿
+//LEDé©±åŠ¨ä»£ç 			 
 
-//LED¶Ë¿Ú¶¨Òå
+
+//LEDç«¯å£å®šä¹‰
 #define LED0 PAout(8)// PA8
 #define LED1 PDout(2)// PD2	
 
-void LED_Init(void);//³õÊ¼»¯
+void LED_Init(void);//åˆå§‹åŒ–
 
 		 				    
 #endif
