@@ -30,7 +30,7 @@
 ### **1. 配置 GPIO 引脚（LED 控制）**
 在 main.c 文件中初始化 GPIO：
 
-**```c
+```c
 GPIO_InitTypeDef GPIO_InitStruct;
 
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能 GPIOA 时钟
@@ -39,7 +39,7 @@ GPIO_InitStruct.GPIO_Pin = GPIO_Pin_5;            // 选择 PA5 引脚
 GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;     // 推挽输出模式
 GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;    // 设置输出速度
 GPIO_Init(GPIOA, &GPIO_InitStruct);
-**
+
 
 ### **2. 配置 USART1（蓝牙通信）**
 初始化串口用于蓝牙通信，波特率为 9600：
