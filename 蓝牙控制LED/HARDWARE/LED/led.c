@@ -1,41 +1,30 @@
 #include "stm32f10x.h"
 #include "led.h"
 
-//////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌĞòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßĞí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//Mini STM32¿ª·¢°å
-//LEDÇı¶¯´úÂë	   
-//ÕıµãÔ­×Ó@ALIENTEK
-//¼¼ÊõÂÛÌ³:www.openedv.com
-//ĞŞ¸ÄÈÕÆÚ:2012/5/27
-//°æ±¾£ºV1.0
-//°æÈ¨ËùÓĞ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ÕıµãÔ­×Ó 2009-2019
-//All rights reserved											  
-////////////////////////////////////////////////////////////////////////////////// 	   
+	   
 
-//³õÊ¼»¯PA8ºÍPD2ÎªÊä³ö¿Ú.²¢Ê¹ÄÜÕâÁ½¸ö¿ÚµÄÊ±ÖÓ		    
-//LED IO³õÊ¼»¯
+//åˆå§‹åŒ–PA8å’ŒPD2ä¸ºè¾“å‡ºå£.å¹¶ä½¿èƒ½è¿™ä¸¤ä¸ªå£çš„æ—¶é’Ÿ		    
+//LED IOåˆå§‹åŒ–
 void LED_Init(void)
 {
  
  GPIO_InitTypeDef  GPIO_InitStructure;
  	
- RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 //Ê¹ÄÜPA¶Ë¿ÚÊ±ÖÓ
+ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 //ä½¿èƒ½PAç«¯å£æ—¶é’Ÿ
 	
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;				 //LED0-->PA.8 ¶Ë¿ÚÅäÖÃ
- GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;				 //LED0-->PA.8 ç«¯å£é…ç½®
+ GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //æ¨æŒ½è¾“å‡º
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
  GPIO_Init(GPIOA, &GPIO_InitStructure);
- GPIO_SetBits(GPIOA,GPIO_Pin_8);						 //PA.8 Êä³ö¸ß
+ GPIO_SetBits(GPIOA,GPIO_Pin_8);						 //PA.8 è¾“å‡ºé«˜
 
 
- RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);   //Ê¹ÄÜPD¶Ë¿ÚÊ±ÖÓ
+ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);   //ä½¿èƒ½PDç«¯å£æ—¶é’Ÿ
 
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;	    		 //LED1-->PD.2 ¶Ë¿ÚÅäÖÃ
- GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;	    		 //LED1-->PD.2 ç«¯å£é…ç½®
+ GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //æ¨æŒ½è¾“å‡º
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
  GPIO_Init(GPIOD, &GPIO_InitStructure);	
- GPIO_SetBits(GPIOD,GPIO_Pin_2); 						 //PD.2 Êä³ö¸ß 
+ GPIO_SetBits(GPIOD,GPIO_Pin_2); 						 //PD.2 è¾“å‡ºé«˜ 
 }
  
